@@ -1,6 +1,7 @@
 import { ISSID } from '@/domain/SSID';
 import styles from './Form.module.css';
 import React from 'react';
+import { encrypt } from '@/lib/crypto';
 
 /**
  * Represents the properties for a component that handles SSID data.
@@ -36,7 +37,7 @@ function Form({ onChange, data }: Props): React.ReactElement {
           onChange={(e) => {
             const value = e.target.value;
             onChange({ ...data, ssid: value });
-            localStorage.setItem('ssid', value);
+            localStorage.setItem('ssid', encrypt(value));
           }}
         />
       </label>
@@ -49,7 +50,7 @@ function Form({ onChange, data }: Props): React.ReactElement {
           onChange={(e) => {
             const value = e.target.value;
             onChange({ ...data, password: value });
-            localStorage.setItem('pwd', value);
+            localStorage.setItem('pwd', encrypt(value));
           }}
         />
       </label>

@@ -6,6 +6,7 @@ import styles from './Card.module.css';
 import { env } from '@/config/config';
 import { ConstructWifi } from '@/lib/wifi';
 import PreviewQR from '../PreviewQR';
+import { decrypt } from '@/lib/crypto';
 
 /**
  * Renders a Card component that facilitates WiFi login functionality.
@@ -16,8 +17,8 @@ import PreviewQR from '../PreviewQR';
  */
 function Card(): React.ReactElement {
   const [formData, setFormData] = useState<ISSID>({
-    ssid: localStorage.getItem('ssid') ?? '',
-    password: localStorage.getItem('pwd') ?? '',
+    ssid: localStorage.getItem('ssid') ? decrypt(localStorage.getItem('ssid')!) ?? '' : '',
+    password: localStorage.getItem('pwd') ? decrypt(localStorage.getItem('pwd')!) ?? '' : '',
   });
   const wifi = ConstructWifi(formData.ssid, formData.password);
   const imageUrl = `${env.apiUrl}${wifi}`;
