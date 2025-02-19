@@ -5,6 +5,6 @@
  * @property {string} secretKey - A secret key used for authentication or encryption.
  */
 export const env = {
-  apiUrl: 'https://api.qrserver.com/v1/create-qr-code/?size=164x164&data=',
-  secretKey: 'Jd8sK3p9Xz1qVb5NmY2WfLg4Tc7AoR6H'
+  apiUrl: process.env.VITE_PUBLIC_API_URL,
+  secretKey: process.env.VITE_SECRET_KEY,
 }

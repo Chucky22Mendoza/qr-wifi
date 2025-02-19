@@ -8,6 +8,7 @@ import CryptoJS from 'crypto-js';
  * @returns The encrypted text as a string.
  */
 export const encrypt = (text: string): string => {
+  if (!env.secretKey) return text;
   return CryptoJS.AES.encrypt(text, env.secretKey).toString();
 };
 
@@ -18,6 +19,7 @@ export const encrypt = (text: string): string => {
  * @returns The decrypted plaintext as a UTF-8 string.
  */
 export const decrypt = (ciphertext: string): string => {
+  if (!env.secretKey) return ciphertext;
   const bytes = CryptoJS.AES.decrypt(ciphertext, env.secretKey);
   return bytes.toString(CryptoJS.enc.Utf8);
 };
