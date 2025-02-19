@@ -1,0 +1,25 @@
+.links {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 1rem;
+}
+
+.links > div {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  color: var(--text-color);
+  font-size: 1.5rem;
+  font-weight: 600;
+  gap: .5rem;
+}
+
+.links > div > img {
+  width: 3.6rem;
+}
+
+.links a:hover {
+  text-decoration: underline;
+}

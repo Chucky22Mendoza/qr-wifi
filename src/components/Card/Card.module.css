@@ -1,0 +1,45 @@
+.card {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 100%;
+  max-width: 600px;
+  padding: 15px 20px;
+  align-items: center;
+  border-radius: 10px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  background-color: #8d8484;
+  border: 2px solid #fff;
+  gap: 20px;
+}
+
+.generator {
+  display: flex;
+  align-self: stretch;
+  flex: 1;
+  align-items: center;
+  justify-content: center;
+  gap: 15px;
+}
+
+.card > h1 {
+  font-size: 28px;
+  font-weight: 700;
+  color: rgba(255, 255, 255, 0.87);
+  margin: 0;
+}
+
+@media (max-width: 600px) {
+  .generator {
+    flex-direction: column-reverse;
+    gap: 15px;
+  }
+
+  .card {
+    gap: 10px;
+  }
+
+  .card > h1 {
+    font-size: 24px;
+  }
+}
